@@ -1,0 +1,25 @@
+<div class="p-comment">
+    <?php if( have_comments() ): ?>
+        <h2 id="comments" class="p-comment__ttl">Comment</h2>
+        <ul class="p-comment__list">
+            <?php wp_list_comments( 'avatar_size=60' ); ?>
+        </ul>
+    <?php endif; ?>
+
+    <?php
+        $args = array(
+            'title_reply' => 'Leave a Reply',
+            'label_submit' => ' POST COMMENT',
+        );
+        comment_form( $args );
+    ?>
+
+    <?php
+        $args = array(
+            'mid_size' => 1,
+            'prev_text' => __( 'PREV', 'wpbeg' ),
+            'next_text' => __( 'NEXT', 'wpbeg' ),
+            );
+        paginate_comments_links( $args );
+    ?>
+</div>
